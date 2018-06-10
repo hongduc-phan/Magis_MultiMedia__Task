@@ -1,0 +1,179 @@
+* {box-sizing: border-box}
+
+
+/* Slider */
+#slider {
+    margin: 16px auto;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#slider-wrapper {
+    width: 9999px;
+    height: 300px;
+    position: relative;
+    transition: left 400ms linear;
+}
+/* Fading animation */
+.slide {
+    float: left;
+    width: 100vw;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+}
+.slide:nth-child(1) {
+    background-image: url("http://www.magis.com/img/floater-box-04.jpg");
+}
+.slide:nth-child(2) {
+    background-image: url("https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/12/01/15/worldcup0112abc.jpg");
+}
+.slide:nth-child(3) {
+    background-image: url("http://img.fifa.com/images/fwc/2018/opengraph/generic.png");
+}
+.slide:nth-child(4) {
+    background-image: url("https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/01/09/11/world-cup-trophy.jpg");
+}
+.slide:nth-child(5) {
+    background-image: url("http://www.coca-cola-deutschland.de/content/dam/journey/de/de/private/2013/09/trophy-tour-4-1440-960-fffb9950.jpg");
+}
+
+@media only screen and (min-width: 960px) {
+    #slider-wrapper {
+        width: 4800px;
+    }
+
+    #slider {
+        margin: 32px auto;
+        width: 960px;
+    }
+
+    .slide {
+        width: 960px;
+    }
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 2.0s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+}
+
+.caption {
+    margin: 0;
+    position: absolute;
+    z-index: 100;
+    bottom: -2em;
+    left: 0;
+    width: 100%;
+    height: 2em;
+    line-height: 2;
+    text-align: center;
+    background: rgba( 0, 0, 0, 0.6 );
+    color: #fff;
+    transition: bottom 500ms ease-in;
+}
+.caption.visible {
+    bottom: 0;
+}
+
+#slider-nav {
+    margin: 1em 0;
+    text-align: center;
+}
+
+#slider-nav a {
+    width: 2em;
+    height: 2em;
+    border: 1px solid #ccc;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    display: inline-block;
+    line-height: 2;
+    margin-right: 0.5em;
+}
+
+#slider-nav a.current {
+    border-color: #000;
+    font-weight: bold;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+/* Posts*/
+.dumb {
+    height: 500px;
+    background-color: bisque;
+}
+.p {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.p-img {
+    background-image: url("http://www.magis.com/img/floater-box-04.jpg");
+    padding-bottom: 130%;
+    transform: translate3d(0px, 4px, 0px);
+    transition: transform 0.5s cubic-bezier(.2,.6,.4,1);
+}
+.p-content {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding: 50px 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transform: translateY(-50px);
+}
+.p-content::after {
+    content: "";
+    border-right: 1px solid #8c8c8b;
+    border-bottom: 1px solid #8c8c8b;
+    right: 0;
+    position: absolute;
+    width: 10%;
+    padding-bottom: 10%;
+    bottom: 0;
+}
+
